@@ -1,0 +1,10 @@
+TOPTARGETS := all clean
+
+SUBDIRS := \
+	01-open
+
+$(TOPTARGETS): $(SUBDIRS)
+$(SUBDIRS):
+	$(MAKE) -C $@ $(MAKECMDGOALS)
+
+.PHONY: $(TOPTARGETS) $(SUBDIRS)
