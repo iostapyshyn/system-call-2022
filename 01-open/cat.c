@@ -17,8 +17,18 @@ static int out(const char *fn)
     }
 
     while ((bytes = read(fd, buffer, BUFFER_SIZE)) > 0) {
-        ret += bytes;
-        if (write(STDOUT_FILENO, buffer, bytes) == -1) {
+        int ret2;
+        char *bp = buffer;
+
+        while (bytes &&
+               (ret2 = write(STDOUT_FILENO, bp, bytes)) != -1) {
+
+            bytes -= ret2;
+            bp += ret2;
+            ret += ret2;
+        }
+
+        if (ret2 == -1) {
             perror("write");
             ret = -1;
             goto out_close;
