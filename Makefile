@@ -1,7 +1,6 @@
 TOPTARGETS := all clean
 
-SUBDIRS := \
-	01-open
+SUBDIRS := 01-open 02-clone 03-mmap
 
 $(TOPTARGETS): $(SUBDIRS)
 $(SUBDIRS):

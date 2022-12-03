@@ -2,7 +2,7 @@
 TARGET ?=
 SRCS ?=
 
-CFLAGS ?= -O2 -g -Wall -Wextra -std=gnu11 -pedantic
+CFLAGS ?= -O2 -g -Wall -Wextra -std=gnu11 -pedantic -static
 LDFLAGS ?=
 
 OBJS = $(SRCS:%.c=%.o)
