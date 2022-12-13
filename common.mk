@@ -13,8 +13,8 @@ all: $(TARGET)
 $(TARGET): $(OBJS)
 	$(CC) $(LDFLAGS) $^ -o $@
 
-%.o: %.c
-	$(CC) -c $(CFLAGS) $^ -o $@
+%.o: %.c $(DEPS)
+	$(CC) -c $(CFLAGS) $< -o $@
 
 .PHONY: clean
 clean:
